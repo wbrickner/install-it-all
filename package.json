@@ -1,7 +1,7 @@
 {
   "name": "@digital-springboard/install-it-all",
   "version": "1.0.1",
-  "description": "Run `npm install` in a large number of directories with a single command.",
+  "description": "Run `npm install` in many projects in parallel with one command. Great for npm orgs.",
   "main": "./bin/install-it-all.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
