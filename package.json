@@ -1,0 +1,19 @@
+{
+  "name": "@digital-springboard/install-it-all",
+  "version": "1.0.1",
+  "description": "Run `npm install` in a large number of directories with a single command.",
+  "main": "./bin/install-it-all.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "install-it-all": "./bin/install-it-all.js"
+  },
+  "author": "Will Brickner",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "pretty-ms": "^4.0.0"
+  }
+}
