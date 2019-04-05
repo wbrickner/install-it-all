@@ -11,11 +11,29 @@ function getProjectDirectoryName(project) {
     return pathComponents[pathComponents.length - 1]
 }
 
-function runInstallCommand(project, manifestDirectory) {
+function buildCommand(options) {
+    let cmd = `npm`
+    if (options.noUpdate) {
+        cmd += ` install`
+        if (options.noDev) { cmd += ` --only=prod` }
+        else if (options.onlyDev) { cmd += ` --only=dev` }
+    }
+    else {
+        cmd += ` update`
+        if (options.noDev) { cmd += ` --only=prod` }
+        else if (options.onlyDev) { cmd += ` --dev --only=dev` }
+        else { cmd += ` --dev` } // dev deps don't get updated unless you explicitly ask for them
+    }
+
+    return cmd
+}
+
+function runInstallCommand(project, manifestDirectory, options) {
     let projectDirectory = path.join(manifestDirectory, project["relative-path"])
 
     return new Promise((resolve, reject) => {
-        exec(`cd ${projectDirectory} && npm install`, (err, stdout, stderr) => {
+        // update existing packages, install missing packages, and also process dev dependencies
+        exec(`cd ${projectDirectory} && ${buildCommand(options)}`, (err, stdout, stderr) => {
             if (err) { return reject(`Error occurred in directory: ${projectDirectory}. \nThis is likely an install-it-all bug. \nRaw error:`, err) }
             if (trueErrorRegExp.test(stderr)) { return reject(`Error occurred in directory: ${projectDirectory}. \nThis is likely an issue with npm, or one of this project's dependencies. \nRaw error:`, stderr) }
             resolve()
@@ -28,7 +46,7 @@ function prettyDuration(startTime) {
     return prettyMs(durration[0] * 1E3 + durration[1] * 1E-6)
 }
 
-module.exports = async function InstallItAll(args, cwd, startTime) {
+module.exports = async function InstallItAll(args, cwd, options, startTime) {
     let { manifest, manifestPath } = getManifest(args, cwd)
     if (manifest === undefined) { return console.error(chalk.underline("Manifest not found")) }
 
@@ -49,7 +67,7 @@ module.exports = async function InstallItAll(args, cwd, startTime) {
             )
         )
 
-        promises[j] = runInstallCommand(manifest.projects[j], manifestDirectory)
+        promises[j] = runInstallCommand(manifest.projects[j], manifestDirectory, options)
     }
 
     console.log("")

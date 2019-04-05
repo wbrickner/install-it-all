@@ -7,7 +7,10 @@ const InstallItAll = require("../install-it-all-core")
 
 program
   .version(version, "-v --version")
-  .usage("install-it-all [path/to/project/manifest.json]")
+  .usage("[path/to/project/manifest.json]")
+  .option("--no-update", "Prevent updating the dependencies (respects semver string)")
+  .option("--no-dev", "Prevent updating / installing dev dependencies")
+  .option("--only-dev", "Only update / install dev dependencies")
   .parse(process.argv)
 
-InstallItAll(program.args, process.cwd(), startTime)
+InstallItAll(program.args, process.cwd(), program, startTime)

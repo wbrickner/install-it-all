@@ -31,6 +31,19 @@ Or you could do:
 ```shell
 $ install-it-all ~/cool-projects/manifest.json
 ```
+## Options
+
+```shell
+Usage: install-it-all [path/to/project/manifest.json]
+
+Options:
+  -v --version  output the version number
+  --no-update   Prevent updating the dependencies (respects semver string)
+  --no-dev      Prevent updating / installing dev dependencies
+  --only-dev    Only update / install dev dependencies
+  -h, --help    output usage information
+```
+
 
 # `manifest.json` Structure
 
