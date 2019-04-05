@@ -1,6 +1,6 @@
 {
   "name": "@digital-springboard/install-it-all",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Run `npm install` in many projects in parallel with one command. Great for npm orgs.",
   "main": "./bin/install-it-all.js",
   "scripts": {
