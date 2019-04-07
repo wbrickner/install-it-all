@@ -1,6 +1,6 @@
 {
   "name": "@digital-springboard/install-it-all",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Run `npm install` in many projects in parallel with one command. Great for npm orgs.",
   "main": "./bin/install-it-all.js",
   "scripts": {
@@ -10,7 +10,17 @@
     "install-it-all": "./bin/install-it-all.js"
   },
   "author": "Will Brickner",
-  "keywords": ["install", "projects", "organization", "update", "dependencies", "npm", "install-it-all", "iia", "digital-springboard"],
+  "keywords": [
+    "install",
+    "projects",
+    "organization",
+    "update",
+    "dependencies",
+    "npm",
+    "install-it-all",
+    "iia",
+    "digital-springboard"
+  ],
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
