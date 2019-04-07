@@ -10,6 +10,7 @@
     "install-it-all": "./bin/install-it-all.js"
   },
   "author": "Will Brickner",
+  "keywords": ["install", "projects", "organization", "update", "dependencies", "npm", "install-it-all", "iia", "digital-springboard"],
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
