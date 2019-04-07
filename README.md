@@ -11,7 +11,7 @@ $ npm install -g @digital-springboard/install-it-all
 ```
 # Usage
 
-`install-it-all` will look for a `manifest.json` file, either at the path provided or in the current directory if no path is provided.
+`install-it-all` will look for a `manifest.json` file, either in/at the path provided, or in the current directory if no path is provided.
 
 ### Example (look in current directory for `manifest.json`)
 ```shell
