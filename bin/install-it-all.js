@@ -3,7 +3,7 @@
 const startTime = process.hrtime()
 const program = require("commander")
 const { version } = require("../package.json")
-const InstallItAll = require("../install-it-all-core")
+const InstallItAll = require("../core/install-it-all")
 
 program
   .version(version, "-v --version")
