@@ -5,7 +5,7 @@
   "main": "./bin/install-it-all.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./core/install-it-all.js ./core/get-manifest.js",
-    "changelog": "./node_modules/.bin/auto-changelog --output ./CHANGELOG --commit-limit false",
+    "changelog": "./node_modules/.bin/auto-changelog --output ./CHANGELOG.md --commit-limit false",
     "prepare-release": "npm test && npm run lint && npm run changelog"
   },
   "repository": {
